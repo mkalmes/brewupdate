@@ -5,4 +5,4 @@ This launchd agent updates the homebrew git repository every day at 11 AM (local
 h2. Install
 
 To install this agent, copy the plist to ~/Library/LaunchAgents and run the command
-bc. launchctl load ~/Library/LaunchAgents/brewupdate.plist
+<code>launchctl load ~/Library/LaunchAgents/brewupdate.plist</code>
