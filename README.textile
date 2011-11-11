@@ -1,6 +1,6 @@
 h1. brewupdate
 
-This launchd agent updates the homebrew git repository every day at 11 AM (local time of your Mac).
+This launchd agent updates the "homebrew":https://github.com/mxcl/homebrew/ git repository every day at 11 AM (local time of your Mac). All log messages will be send to /var/log/system.log and can be easily viewed with /Applications/Utilities/Console.app. Just use the search filter <code>net.mkalmes.brewupdate</code> on "All Messages".
 
 h2. Install
 
