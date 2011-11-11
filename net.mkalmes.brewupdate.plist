@@ -4,6 +4,11 @@
 <dict>
 	<key>Label</key>
 	<string>net.mkalmes.brewupdate</string>
+	<key>EnvironmentVariables</key>
+	<dict>
+		<key>TERM</key>
+		<string>ansi</string>
+	</dict>
 	<key>ProgramArguments</key>
 	<array>
 		<string>/usr/bin/ruby</string>
