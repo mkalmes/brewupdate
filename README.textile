@@ -4,7 +4,7 @@ h1. brewupdate
 
 h2. How to install it?
 
-To install <code>brewupdate</code>, copy the plist to <code>~/Library/LaunchAgents</code> and run the command <code>launchctl load ~/Library/LaunchAgents/brewupdate.plist</code> to load the agent into your user launchd manager.
+To install <code>brewupdate</code>, copy the plist to <code>~/Library/LaunchAgents</code> and run the command <code>launchctl load ~/Library/LaunchAgents/net.mkalmes.brewupdate.plist</code> to load the agent into your user launchd manager.
 
 <code>brewupdate</code> will update the homebrew formulae every day at 11 AM (local time).
 
