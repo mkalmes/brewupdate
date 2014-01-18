@@ -1,8 +1,13 @@
 h1. brewupdate
 
-This launchd agent updates the homebrew git repository every day at 11 AM (local time of your Mac).
+<code>brewupdate</code> is a "launchd agent":http://developer.apple.com/library/mac/#technotes/tn2083/_index.html to update "homebrew":https://github.com/mxcl/homebrew/ formulae automaticly.
 
-h2. Install
+h2. How to install it?
 
-To install this agent, copy the plist to ~/Library/LaunchAgents and run the command
-bc. launchctl load ~/Library/LaunchAgents/brewupdate.plist
+To install <code>brewupdate</code>, copy the plist to <code>~/Library/LaunchAgents</code> and run the command <code>launchctl load ~/Library/LaunchAgents/net.mkalmes.brewupdate.plist</code> to load the agent into your user launchd manager.
+
+<code>brewupdate</code> will update the homebrew formulae every day at 11 AM (local time).
+
+h2. … and where do I see what's updated?
+
+<code>brewupdate</code> redirects the output to <code>/var/log/system.log</code> and can be easily viewed with <code>/Applications/Utilities/Console.app</code>. Use the search filter <code>net.mkalmes.brewupdate</code> on "All Messages" to display the list of new and updated formulae.
