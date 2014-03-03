@@ -1,13 +1,16 @@
-h1. brewupdate
+# brewupdate #
 
-<code>brewupdate</code> is a "launchd agent":http://developer.apple.com/library/mac/#technotes/tn2083/_index.html to update "homebrew":https://github.com/mxcl/homebrew/ formulae automaticly.
+<code>brewupdate</code> is a [launchd agent][launchd] to update [homebrew][homebrew] formulae automaticly.
 
-h2. How to install it?
+## How to install it? ##
 
 To install <code>brewupdate</code>, copy the plist to <code>~/Library/LaunchAgents</code> and run the command <code>launchctl load ~/Library/LaunchAgents/net.mkalmes.brewupdate.plist</code> to load the agent into your user launchd manager.
 
 <code>brewupdate</code> will update the homebrew formulae every day at 11 AM (local time).
 
-h2. … and where do I see what's updated?
+## … and where do I see what's updated? ##
 
 <code>brewupdate</code> redirects the output to <code>/var/log/system.log</code> and can be easily viewed with <code>/Applications/Utilities/Console.app</code>. Use the search filter <code>net.mkalmes.brewupdate</code> on "All Messages" to display the list of new and updated formulae.
+
+[launchd]: http://developer.apple.com/library/mac/#technotes/tn2083/_index.html
+[homebrew]: https://github.com/mxcl/homebrew/
