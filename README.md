@@ -1,16 +1,34 @@
 # brewupdate #
 
-<code>brewupdate</code> is a [launchd agent][launchd] to update [homebrew][homebrew] formulae automaticly.
+brewupdate is a [launchd agent][launchd] to update [homebrew][homebrew] formulae automaticly every day at 11 AM (local time).
 
-## How to install it? ##
+Brewupdate will not upgrade your installed formulae. It's sole responsibility is to fetch new formulae.
 
-To install <code>brewupdate</code>, copy the plist to <code>~/Library/LaunchAgents</code> and run the command <code>launchctl load ~/Library/LaunchAgents/net.mkalmes.brewupdate.plist</code> to load the agent into your user launchd manager.
+## How to Install ##
+To install `brewupdate`, copy the plist to `~/Library/LaunchAgents` and run the command `launchctl load ~/Library/LaunchAgents/net.mkalmes.brewupdate.plist` to load the LaunchAgent into the launchd manager.
 
-<code>brewupdate</code> will update the homebrew formulae every day at 11 AM (local time).
+Here is a quick rundown:
+```
+> mkdir ~/Library/LaunchAgents
+> cp net.mkalmes.brewupdate.plist ~/Library/LaunchAgents
+> launchctl load ~/Library/LaunchAgents/net.mkalmes.brewupdate.plist
+```
+
+## How to Upgrade ##
+If you installed a previous version of brewupdate, unload the loaded LaunchAgent, copy the new agent to `~/Library/LaunchAgents`, and load the copied LaunchAgent.
+
+Here is a quick rundown:
+```
+> launchctl unload ~/Library/LaunchAgents/net.mkalmes.brewupdate.plist
+> cp net.mkalmes.brewupdate.plist ~/Library/LaunchAgents
+> launchctl load ~/Library/LaunchAgents/net.mkalmes.brewupdate.plist
+```
 
 ## … and where do I see what's updated? ##
+Since OS X 10.8, [Apple removed the redirection][apple-removed-redirection] of `stdout` and `stderr` to `system.log`.
 
-<code>brewupdate</code> redirects the output to <code>/var/log/system.log</code> and can be easily viewed with <code>/Applications/Utilities/Console.app</code>. Use the search filter <code>net.mkalmes.brewupdate</code> on "All Messages" to display the list of new and updated formulae.
+On OS X 10.5 to 10.7, <code>brewupdate</code> redirects the output to <code>/var/log/system.log</code> and can be easily viewed with <code>/Applications/Utilities/Console.app</code>. Use the search filter <code>net.mkalmes.brewupdate</code> on "All Messages" to display the list of new and updated formulae.
 
 [launchd]: http://developer.apple.com/library/mac/#technotes/tn2083/_index.html
 [homebrew]: https://github.com/mxcl/homebrew/
+[apple-removed-redirection]: http://stackoverflow.com/a/15655471/1712728
