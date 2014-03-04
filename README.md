@@ -4,7 +4,7 @@
 
 Brewupdate will not upgrade your installed formulae. It's sole responsibility is to fetch new formulae.
 
-## How to install it? ##
+## How to Install ##
 To install <code>brewupdate</code>, copy the plist to <code>~/Library/LaunchAgents</code> and run the command <code>launchctl load ~/Library/LaunchAgents/net.mkalmes.brewupdate.plist</code> to load the LaunchAgent into the launchd manager.
 
 Here is a quick rundown:
@@ -14,7 +14,7 @@ Here is a quick rundown:
 > launchctl load ~/Library/LaunchAgents/net.mkalmes.brewupdate.plist
 ```
 
-## Upgrade ##
+## How to Upgrade ##
 If you installed a previous version of brewupdate, unload the loaded LaunchAgent, copy the new agent to <code>~/Library/LaunchAgents</code>, and load the copied LaunchAgent.
 
 Here is a quick rundown:
