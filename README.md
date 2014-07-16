@@ -1,11 +1,18 @@
 # brewupdate #
 
-brewupdate is a [launchd agent][launchd] to update [homebrew][homebrew] formulae automaticly every day at 11 AM (local time).
+brewupdate is a [launchd agent][launchd] to update [homebrew][homebrew] formulae automatically every day at 11 AM (local time).
 
-Brewupdate will not upgrade your installed formulae. It's sole responsibility is to fetch new formulae.
+Brewupdate will not upgrade your installed formulae. Its sole responsibility is to fetch new formulae.
 
-## How to Install ##
-To install `brewupdate`, copy the plist to `~/Library/LaunchAgents` and run the command `launchctl load ~/Library/LaunchAgents/net.mkalmes.brewupdate.plist` to load the LaunchAgent into the launchd manager.
+## How to Install or Upgrade ##
+Run the following command in the terminal:
+
+```sh
+curl -L https://github.com/mkalmes/brewupdate/raw/master/brewupdate-install.sh | bash
+```
+
+### Manual installation ###
+To manually install `brewupdate`, copy the plist to `~/Library/LaunchAgents` and run the command `launchctl load ~/Library/LaunchAgents/net.mkalmes.brewupdate.plist` to load the LaunchAgent into the launchd manager.
 
 Here is a quick rundown:
 ```
@@ -14,7 +21,7 @@ Here is a quick rundown:
 > launchctl load ~/Library/LaunchAgents/net.mkalmes.brewupdate.plist
 ```
 
-## How to Upgrade ##
+### Manual upgrade ###
 If you installed a previous version of brewupdate, unload the loaded LaunchAgent, copy the new agent to `~/Library/LaunchAgents`, and load the copied LaunchAgent.
 
 Here is a quick rundown:
