@@ -36,6 +36,11 @@ Since OS X 10.8, [Apple removed the redirection][apple-removed-redirection] of `
 
 On OS X 10.5 to 10.7, <code>brewupdate</code> redirects the output to <code>/var/log/system.log</code> and can be easily viewed with <code>/Applications/Utilities/Console.app</code>. Use the search filter <code>net.mkalmes.brewupdate</code> on "All Messages" to display the list of new and updated formulae.
 
+## License
+
+Code is under the [BSD 2-Clause license][license].
+
 [launchd]: http://developer.apple.com/library/mac/#technotes/tn2083/_index.html
 [homebrew]: https://github.com/mxcl/homebrew/
 [apple-removed-redirection]: http://stackoverflow.com/a/15655471/1712728
+[license]: https://github.com/mkalmes/brewupdate/tree/develop/LICENSE.txt
