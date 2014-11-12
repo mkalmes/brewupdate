@@ -8,7 +8,7 @@ Brewupdate will not upgrade your installed formulae. Its sole responsibility is 
 Run the following command in the terminal:
 
 ```sh
-curl -L https://github.com/mkalmes/brewupdate/raw/master/brewupdate-install.sh | bash
+curl -L https://github.com/mkalmes/brewupdate/raw/develop/brewupdate-install.sh | bash
 ```
 
 ### Manual installation ###
