@@ -8,13 +8,12 @@
 # 2014/10/15 cgwong v0.1.0: Initial creation.
 # 2015/01/04 cgwong v0.1.1: Added cask commands.
 #                           Removed logging, corrected getting name from path.
+# 2015/01/07 cgwong v0.1.2: Commented unneeded lines.
 # ############################################################################
 
 set -e
  
-NAME=`basename $0`
-  
-export PATH=/usr/local/bin:/usr/bin:/usr/sbin:/sbin:/bin
+##NAME=$(basename $0)
+##export PATH=/usr/local/bin:/usr/bin:/usr/sbin:/sbin:/bin
    
 (brew update && brew upgrade brew-cask && brew upgrade && brew cleanup && brew cask cleanup && brew doctor)
-

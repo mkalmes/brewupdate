@@ -7,6 +7,7 @@
 # LOG:
 # yyyy/mm/dd [user] [version]: [notes]
 # 2014/10/15 cgwong v0.1.0: Initial creation from https://github.com/mkalmes/brewupdate/blob/develop/brewupdate-install.sh
+# 2015/01/07 cgwong v0.2.0: Added check for successful load.
 # ############################################################################
 
 set -e
@@ -31,4 +32,10 @@ fi
 
 curl -L "$REMOTE" >| "$PLIST"
 [ -f "$PLIST" ] && launchctl load "$PLIST"
-echo "Loaded brewupdate."
+if [ $? -eq 0 ]; then
+  echo "Loaded brewupdate."
+  exit 0
+else
+  echo "Failed loading brewupdate!!"
+  exit 1
+fi
