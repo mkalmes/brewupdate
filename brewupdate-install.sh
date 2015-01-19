@@ -12,7 +12,7 @@
 
 set -e
 
-BIN="/usr/local/bin"
+UPDATE_SCRIPT="/usr/local/bin/brewupdate.sh"
 AGENTS="$HOME/Library/LaunchAgents"
 PLIST="$AGENTS/net.brewupdate.agent.plist"
 REPO=${REPO:-heitortsergent}
@@ -33,8 +33,8 @@ if [ "$1" == "uninstall" ]; then
   fi
 fi
 
-curl -L "$REMOTE_SCRIPT" >| "$BIN"
-if [ -f "$BIN" ]; then
+curl -L "$REMOTE_SCRIPT" >| "$UPDATE_SCRIPT"
+if [ -f "$UPDATE_SCRIPT" ]; then
   echo "Downloaded brewupdate.sh"
 else
   echo "Failed downloading brewupdate.sh"
