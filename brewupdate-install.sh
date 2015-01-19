@@ -53,4 +53,11 @@ fi
 brew install terminal-notifier
 echo "Installed terminal-notifier."
 
+## create log folder
+mkdir -p $HOME/Library/Logs/Homebrew/brewupdate
+
+## add StandardOutPath and StandardErrorPath to plist
+defaults write "$PLIST" StandardOutPath $HOME/Library/Logs/Homebrew/brewupdate/brewupdate.log
+defaults write "$PLIST" StandardErrorPath $HOME/Library/Logs/Homebrew/brewupdate/brewupdate-error.log
+
 exit 0
