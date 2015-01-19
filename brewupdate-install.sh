@@ -12,11 +12,14 @@
 
 set -e
 
+BIN="/usr/local/bin"
 AGENTS="$HOME/Library/LaunchAgents"
 PLIST="$AGENTS/net.brewupdate.agent.plist"
-REPO=${REPO:-cgswong}
+REPO=${REPO:-heitortsergent}
 BRANCH=${BRANCH:-master}
-REMOTE="https://github.com/$REPO/brewupdate/raw/$BRANCH/net.brewupdate.agent.plist"
+REMOTE="https://github.com/$REPO/brewupdate/raw/$BRANCH"
+REMOTE_PLIST="$REMOTE/net.brewupdate.agent.plist"
+REMOTE_SCRIPT="$REMOTE/brewupdate.sh"
 
 [ -f "$PLIST" ] && launchctl unload "$PLIST"
 if [ "$1" == "uninstall" ]; then
@@ -30,12 +33,21 @@ if [ "$1" == "uninstall" ]; then
   fi
 fi
 
-curl -L "$REMOTE" >| "$PLIST"
+curl -L "$REMOTE_SCRIPT" >| "$BIN"
+if [ -f "$BIN" ]; then
+  echo "Downloaded brewupdate.sh"
+else
+  echo "Failed downloading brewupdate.sh"
+  exit 1
+fi
+
+curl -L "$REMOTE_PLIST" >| "$PLIST"
 [ -f "$PLIST" ] && launchctl load "$PLIST"
 if [ $? -eq 0 ]; then
   echo "Loaded brewupdate."
-  exit 0
 else
   echo "Failed loading brewupdate!!"
   exit 1
 fi
+
+exit 0
