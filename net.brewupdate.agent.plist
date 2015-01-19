@@ -15,8 +15,6 @@
   </dict>
   <key>Program</key>
   <string>/usr/local/bin/brewupdate.sh</string>
-  <key>RunAtLoad</key>
-  <false/>
   <key>StartCalendarInterval</key>
   <dict>
     <key>Hour</key>
