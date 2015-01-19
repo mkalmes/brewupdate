@@ -50,4 +50,7 @@ else
   exit 1
 fi
 
+brew install terminal-notifier
+echo "Installed terminal-notifier."
+
 exit 0
