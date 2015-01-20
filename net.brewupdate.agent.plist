@@ -13,8 +13,11 @@
     <key>PATH</key>
     <string>/usr/local/bin:/usr/bin:/usr/sbin:/sbin:/bin</string>
   </dict>
-  <key>Program</key>
-  <string>/usr/local/bin/brewupdate.sh</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/usr/local/bin/brewupdate.sh</string>
+    <string>update</string>
+  </array>
   <key>StartCalendarInterval</key>
   <dict>
     <key>Hour</key>
