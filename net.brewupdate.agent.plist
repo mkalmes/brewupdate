@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>net.brewupdate.agent</string>
+  <key>ProcessType</key>
+  <string>Background</string>
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>TERM</key>
+    <string>ansi</string>
+    <key>PATH</key>
+    <string>/usr/local/bin:/usr/bin:/usr/sbin:/sbin:/bin</string>
+  </dict>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/usr/local/bin/brewupdate.sh</string>
+    <string>update</string>
+  </array>
+  <key>StartCalendarInterval</key>
+  <dict>
+    <key>Hour</key>
+    <integer>11</integer>
+    <key>Minute</key>
+    <integer>0</integer>
+    <key>Weekday</key>
+    <integer>7</integer>
+  </dict>
+</dict>
+</plist>
