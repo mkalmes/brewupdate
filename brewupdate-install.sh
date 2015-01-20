@@ -12,11 +12,14 @@
 
 set -e
 
+UPDATE_SCRIPT="/usr/local/bin/brewupdate.sh"
 AGENTS="$HOME/Library/LaunchAgents"
 PLIST="$AGENTS/net.brewupdate.agent.plist"
-REPO=${REPO:-cgswong}
+REPO=${REPO:-heitortsergent}
 BRANCH=${BRANCH:-master}
-REMOTE="https://github.com/$REPO/brewupdate/raw/$BRANCH/net.brewupdate.agent.plist"
+REMOTE="https://github.com/$REPO/brewupdate/raw/$BRANCH"
+REMOTE_PLIST="$REMOTE/net.brewupdate.agent.plist"
+REMOTE_SCRIPT="$REMOTE/brewupdate.sh"
 
 [ -f "$PLIST" ] && launchctl unload "$PLIST"
 if [ "$1" == "uninstall" ]; then
@@ -30,12 +33,31 @@ if [ "$1" == "uninstall" ]; then
   fi
 fi
 
-curl -L "$REMOTE" >| "$PLIST"
+curl -L "$REMOTE_SCRIPT" >| "$UPDATE_SCRIPT"
+if [ -f "$UPDATE_SCRIPT" ]; then
+  echo "Downloaded brewupdate.sh"
+else
+  echo "Failed downloading brewupdate.sh"
+  exit 1
+fi
+
+curl -L "$REMOTE_PLIST" >| "$PLIST"
 [ -f "$PLIST" ] && launchctl load "$PLIST"
 if [ $? -eq 0 ]; then
   echo "Loaded brewupdate."
-  exit 0
 else
   echo "Failed loading brewupdate!!"
   exit 1
 fi
+
+brew install terminal-notifier
+echo "Installed terminal-notifier."
+
+## create log folder
+mkdir -p $HOME/Library/Logs/Homebrew/brewupdate
+
+## add StandardOutPath and StandardErrorPath to plist
+defaults write "$PLIST" StandardOutPath $HOME/Library/Logs/Homebrew/brewupdate/brewupdate.log
+defaults write "$PLIST" StandardErrorPath $HOME/Library/Logs/Homebrew/brewupdate/brewupdate-error.log
+
+exit 0

@@ -15,5 +15,6 @@ set -e
  
 ##NAME=$(basename $0)
 ##export PATH=/usr/local/bin:/usr/bin:/usr/sbin:/sbin:/bin
-   
-(brew update && brew upgrade brew-cask && brew upgrade && brew cleanup && brew cask cleanup && brew doctor)
+
+terminal-notifier -title 'Homebrew' -message 'Updating and upgrading'
+(brew update && brew upgrade && brew cleanup && brew cask cleanup && brew doctor)
